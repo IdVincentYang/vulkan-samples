@@ -1,0 +1,1 @@
+apply from: "$project.rootDir/lunarg-api-samples/lunarg-api-samples.gradle"

@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+
+android {
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+    buildToolsVersion '29.0.3'
+    compileSdkVersion 29
+    defaultConfig {
+        minSdkVersion 24    // Official vulkan support starts from API level 24
+        targetSdkVersion 26
+        versionCode 1
+        versionName '0.0.1'
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
+        externalNativeBuild {
+            cmake {
+                arguments '-DANDROID_PLATFORM=android-24', '-DANDROID_TOOLCHAIN=clang',
+                          '-DSAMPLE_NAME=' + project.getName()
+            }
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "$project.rootDir/lunarg-api-samples/CMakeLists.txt"
+        }
+    }
+    ndkVersion '21.3.6528147'
+    sourceSets {
+        main {
+            res.srcDirs = ["$project.rootDir/res-common"]
+        }
+    }
+}
