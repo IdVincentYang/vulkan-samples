@@ -1,1 +1,3 @@
 apply from: "$project.rootDir/lunarg-api-samples/lunarg-api-samples.gradle"
+
+android.sourceSets.main.jniLibs.srcDirs file(android.ndkDirectory.path).absolutePath + '/sources/third_party/vulkan/src/build-android/jniLibs'

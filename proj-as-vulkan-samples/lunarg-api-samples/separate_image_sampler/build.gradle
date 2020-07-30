@@ -1,1 +1,3 @@
 apply from: "$project.rootDir/lunarg-api-samples/lunarg-api-samples.gradle"
+
+android.sourceSets.main.assets.srcDirs "$project.rootDir/../src-lunarg-api-samples/data"
